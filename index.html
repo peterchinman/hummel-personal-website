@@ -48,7 +48,7 @@
 
       @media (prefers-color-scheme: dark) {
         :root {
-          --color-text-base: #C2C0B6;
+          --color-text-base: #c2c0b6;
           --color-background-base: #262624;
           --color-cta-base: #302e30;
         }
@@ -64,21 +64,33 @@
 
       :root {
         --color-tropical-text: #400036;
-        --color-tropical-background: #DDF9D6;
-        --color-tropical-cta: #FCFFA6;
+        --color-tropical-background: #ddf9d6;
+        --color-tropical-cta: #fcffa6;
 
-        --color-text: color-mix(in srgb, var(--color-tropical-text) var(--tropical-progress), var(--color-text-base));
-        --color-background: color-mix(in srgb, var(--color-tropical-background) var(--tropical-progress), var(--color-background-base));
-        --color-cta: color-mix(in srgb, var(--color-tropical-cta) var(--tropical-progress), var(--color-cta-base));
+        --color-text: color-mix(
+          in srgb,
+          var(--color-tropical-text) var(--tropical-progress),
+          var(--color-text-base)
+        );
+        --color-background: color-mix(
+          in srgb,
+          var(--color-tropical-background) var(--tropical-progress),
+          var(--color-background-base)
+        );
+        --color-cta: color-mix(
+          in srgb,
+          var(--color-tropical-cta) var(--tropical-progress),
+          var(--color-cta-base)
+        );
 
         transition: --tropical-progress 2s ease;
       }
 
       @media (prefers-color-scheme: dark) {
         :root {
-          --color-tropical-text: #FF80D5;
-          --color-tropical-background: #042B04;
-          --color-tropical-cta: #092E2A;
+          --color-tropical-text: #ff80d5;
+          --color-tropical-background: #042b04;
+          --color-tropical-cta: #092e2a;
         }
       }
 
@@ -232,10 +244,14 @@
       }
 
       @media (min-width: 657px) {
+        :root {
+          --space-lh-md: 4lh;
+          --space-lh-lg: 4lh;
+        }
         body {
           display: grid;
           grid-template-columns: repeat(12, 1fr);
-          max-width: 48.15rem;
+          max-width: 54rem;
           margin-inline: auto;
           height: 100vh;
           align-items: center;
@@ -258,7 +274,7 @@
         main {
           display: grid;
           grid-template-columns: subgrid;
-          grid-template-rows: 70px max(auto, 199px) 116px;
+          grid-template-rows: 70px minmax(199px, auto) 116px;
           padding-bottom: 0;
           padding-top: 0;
         }
@@ -406,7 +422,7 @@
 
       let interactionCount = 0;
       let tropicalProgress = 0;
-      const INTERACTION_BUFFER = 8;
+      const INTERACTION_BUFFER = 10;
 
       function advanceTropical() {
         interactionCount++;
@@ -414,7 +430,7 @@
           tropicalProgress = Math.min(100, tropicalProgress + 10);
           document.documentElement.style.setProperty(
             "--tropical-progress",
-            `${tropicalProgress}%`
+            `${tropicalProgress}%`,
           );
         }
       }
