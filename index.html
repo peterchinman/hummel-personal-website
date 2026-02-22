@@ -26,6 +26,7 @@
         --color-text: var(--color-text-base);
         --color-background: var(--color-background-base);
         --color-cta: var(--color-cta-base);
+        --color-stroke: #202020;
 
         --font-size-sm: 0.94rem;
         --font-size-lg: 1.4rem;
@@ -51,6 +52,7 @@
           --color-text-base: #c2c0b6;
           --color-background-base: #262624;
           --color-cta-base: #302e30;
+          --color-stroke: #0d0d0d;
         }
       }
 
@@ -212,7 +214,7 @@
       }
 
       .consultation-button {
-        border: 1.5px solid var(--color-text);
+        border: 1.5px solid var(--color-stroke);
         border-radius: 0.6rem;
         display: flex;
         justify-content: center;
@@ -221,7 +223,7 @@
         text-decoration: none;
         background-color: var(--color-cta);
         color: var(--color-text);
-        box-shadow: var(--shadow-offset) var(--shadow-offset) var(--color-text);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) var(--color-stroke);
         transform: translate(0, 0);
         transition:
           background-color var(--transition-speed),
